@@ -598,7 +598,57 @@
 									</span>
 								</a>
 							</div>
-							<br>
+
+<style>.logosSwiper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  -webkit-mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+}
+
+.logosSwiper img {
+  filter: brightness(0) invert(1); /* deixa a logo branca */
+  opacity: 0.8;
+  max-height: 100px;
+  max-width: 100px;
+  transition: opacity 0.3s;
+  object-fit: contain;  /* evita deformação */
+  display: block;       /* remove espaço embaixo da imagem */
+}
+
+.logosSwiper .swiper-slide-active img {
+  opacity: 1;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;  /* centraliza verticalmente */
+  height: 120px;        /* altura fixa do slide */
+  width: auto;
+  padding: 0 30px;
+}
+
+</style>
+
+							<div class="swiper logosSwiper">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide"><img src="images/streamings/1.png"></div>
+									<div class="swiper-slide"><img src="images/streamings/2.png"></div>
+									<div class="swiper-slide"><img src="images/streamings/3.png"></div>
+									<div class="swiper-slide"><img src="images/streamings/4.png"></div>
+									<div class="swiper-slide"><img src="images/streamings/5.png"></div>
+									<div class="swiper-slide"><img src="images/streamings/6.png"></div>
+									<div class="swiper-slide"><img src="images/streamings/7.png"></div>
+									<div class="swiper-slide"><img src="images/streamings/8.png"></div>
+									<div class="swiper-slide"><img src="images/streamings/9.png"></div>
+								</div>
+							</div>
 						</div>
 						<div class="elementor-element elementor-element-41ddaed elementor-widget__width-initial elementor-widget-mobile__width-initial elementor-widget elementor-widget-image"
 							data-id="41ddaed" data-element_type="widget" data-widget_type="image.default">
@@ -622,8 +672,6 @@
 
 						<div class="swiper planosSwiper">
 							<div class="swiper-wrapper" id="planosContainer"></div>
-
-
 						</div>
 					</div>
 					<div class="elementor-element elementor-element-b26b0f0 e-flex e-con-boxed e-con e-parent"
@@ -1754,29 +1802,8 @@
 						</div>
 					</div>
 				</div>
-
-
 			</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	</main>
-
 	<footer id="site-footer" class="site-footer dynamic-footer footer-has-copyright">
 		<div class="footer-inner">
 			<div class="site-branding show-logo">
@@ -1788,8 +1815,6 @@
 			</div>
 		</div>
 	</footer>
-
-
 	<script>
 		const planosList = [
 			{
@@ -2128,39 +2153,49 @@
 				1440: { slidesPerView: 3 },  // Telas grandes: mantém 3
 			}
 		});
+
+		  var logosSwiper = new Swiper(".logosSwiper", {
+    slidesPerView: "auto",
+    spaceBetween: 0,
+    loop: true,
+    speed: 6000,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+    },
+    allowTouchMove: false, // só gira automático, sem arrastar
+  });
 	</script>
 
 
 	<script>
-	const nomes = ["Lucas", "Mariana", "Rafael", "Camila", "João", "Beatriz", "Felipe", "Ana"];
+		const nomes = ["Lucas", "Mariana", "Rafael", "Camila", "João", "Beatriz", "Felipe", "Ana"];
 
-// pega os nomes e tipos direto da lista de planos
-const planosPopup = planosList.map(p => ({
-    nome: p.nome,
-    tipo: p.type
-}));
+		// pega os nomes e tipos direto da lista de planos
+		const planosPopup = planosList.map(p => ({
+			nome: p.nome,
+			tipo: p.type
+		}));
 
-function criarPopup() {
-    const nomeCliente = nomes[Math.floor(Math.random() * nomes.length)];
-    const planoEscolhido = planosPopup[Math.floor(Math.random() * planosPopup.length)];
+		function criarPopup() {
+			const nomeCliente = nomes[Math.floor(Math.random() * nomes.length)];
+			const planoEscolhido = planosPopup[Math.floor(Math.random() * planosPopup.length)];
 
-    const popup = document.createElement("div");
-    popup.className = "popup";
-    popup.innerText = `${nomeCliente} acabou de assinar o ${planoEscolhido.nome} ${planoEscolhido.tipo}!`;
+			const popup = document.createElement("div");
+			popup.className = "popup";
+			popup.innerText = `${nomeCliente} acabou de assinar o ${planoEscolhido.nome} ${planoEscolhido.tipo}!`;
 
-    document.body.appendChild(popup);
+			document.body.appendChild(popup);
 
-    setTimeout(() => {
-        popup.remove();
-    }, 5000);
-}
+			setTimeout(() => {
+				popup.remove();
+			}, 5000);
+		}
 
-// Mostrar um popup a cada 6 a 12 segundos (aleatório)
-setInterval(criarPopup, Math.floor(Math.random() * 6000) + 6000);
+		// Mostrar um popup a cada 6 a 12 segundos (aleatório)
+		setInterval(criarPopup, Math.floor(Math.random() * 6000) + 6000);
 
 	</script>
-
-
 </body>
 
-</html><!-- Page cached by LiteSpeed Cache 7.2 on 2025-08-27 00:33:50 -->
+</html>
