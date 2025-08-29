@@ -177,7 +177,7 @@
 }
 .elementor-11 .elementor-element.elementor-element-793ee4e8 {
   --display: grid;
-  --e-con-grid-template-columns: repeat(4, 1fr);
+  --e-con-grid-template-columns: repeat(3, 1fr);
   --e-con-grid-template-rows: repeat(1, 1fr);
   --gap: 24px 24px;
   --row-gap: 24px;
