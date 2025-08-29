@@ -451,6 +451,63 @@
 <body
 	class="home page-template-default page page-id-11 elementor-default elementor-kit-6 elementor-page elementor-page-11">
 
+	<style>
+		.popup {
+			position: fixed;
+			bottom: 20px;
+			left: 20px;
+			background: linear-gradient(135deg, #8b0000, #b22222);
+			color: #fff;
+			padding: 15px 20px;
+			border-radius: 12px;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+			font-size: 15px;
+			font-weight: bold;
+			opacity: 0;
+			transform: translateY(30px);
+			animation: slideIn 0.5s forwards, fadeOut 0.5s forwards 4.5s;
+			z-index: 9999;
+		}
+
+		@keyframes slideIn {
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes fadeOut {
+			to {
+				opacity: 0;
+				transform: translateY(30px);
+			}
+		}
+	</style>
+
+	<div id="sale-popup" class="sale-popup"></div>
+
+	<script>
+		const nomes = ["Lucas", "Mariana", "Rafael", "Camila", "João", "Beatriz", "Felipe", "Ana"];
+		const planos = ["Básico", "Plus", "Premium"];
+
+		function criarPopup() {
+			const nome = nomes[Math.floor(Math.random() * nomes.length)];
+			const plano = planos[Math.floor(Math.random() * planos.length)];
+
+			const popup = document.createElement("div");
+			popup.className = "popup";
+			popup.innerText = `${nome} acabou de assinar o plano ${plano.toUpperCase()}!`;
+
+			document.body.appendChild(popup);
+
+			setTimeout(() => {
+				popup.remove();
+			}, 5000);
+		}
+
+		// Mostrar um popup a cada 6 a 12 segundos (aleatório)
+		setInterval(criarPopup, Math.floor(Math.random() * 6000) + 6000);
+	</script>
 
 	<a class="skip-link screen-reader-text" href="#content">Ir para o conteúdo</a>
 
@@ -1443,314 +1500,6 @@
 									</div>
 								</div>
 							</div>
-							<!--
-							<div class="elementor-element elementor-element-6eb8405a e-con-full e-flex e-con e-child"
-								data-id="6eb8405a" data-element_type="container" data-settings="{"
-								background_background":"gradient"}"="">
-								<div class="elementor-element elementor-element-5bbc09e4 e-con-full e-flex e-con e-child"
-									data-id="5bbc09e4" data-element_type="container" data-settings="{"
-									background_background":"classic"}"="">
-									<div class="elementor-element elementor-element-7d0e04a5 elementor-align-justify elementor-widget__width-initial elementor-widget elementor-widget-button"
-										data-id="7d0e04a5" data-element_type="widget" data-widget_type="button.default">
-										<a class="elementor-button elementor-button-link elementor-size-sm"
-											href="#valor">
-											<span class="elementor-button-content-wrapper">
-												<span class="elementor-button-text">O MAIS VENDIDO</span>
-											</span>
-										</a>
-									</div>
-									<div class="elementor-element elementor-element-261fbe01 elementor-widget__width-initial elementor-widget elementor-widget-text-editor"
-										data-id="261fbe01" data-element_type="widget"
-										data-widget_type="text-editor.default">
-										<p>Plano Zenocine</p>
-									</div>
-									<div class="elementor-element elementor-element-12354091 elementor-widget__width-initial elementor-widget elementor-widget-heading"
-										data-id="12354091" data-element_type="widget"
-										data-widget_type="heading.default">
-										<h2 class="elementor-heading-title elementor-size-default">anual</h2>
-									</div>
-								</div>
-								<div class="elementor-element elementor-element-4d101e36 e-con-full e-flex e-con e-child"
-									data-id="4d101e36" data-element_type="container" data-settings="{"
-									background_background":"classic"}"="">
-									<div class="elementor-element elementor-element-42524cd elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
-										data-id="42524cd" data-element_type="widget"
-										data-widget_type="icon-list.default">
-										<ul class="elementor-icon-list-items">
-											<li class="elementor-icon-list-item">
-												<span class="elementor-icon-list-icon">
-													<svg xmlns="http://www.w3.org/2000/svg" width="305" height="315"
-														viewBox="0 0 305 315" fill="none">
-														<g id="CHECK SIM">
-															<path id="VECTOR"
-																d="M153.508 9.04511L152.5 8.06982L151.492 9.04511L115.559 43.8068L66.0561 36.805L64.6672 36.6085L64.4248 37.9901L55.7868 87.2338L11.6225 110.666L10.3834 111.324L10.9994 112.584L32.9559 157.5L10.9994 202.416L10.3834 203.677L11.6225 204.334L55.7868 227.767L64.4248 277.01L64.6672 278.393L66.0561 278.195L115.559 271.194L151.492 305.955L152.5 306.931L153.508 305.955L189.441 271.194L238.944 278.195L240.333 278.393L240.576 277.01L249.214 227.767L293.378 204.334L294.617 203.677L294.001 202.416L272.045 157.5L294.001 112.584L294.617 111.324L293.378 110.666L249.214 87.2338L240.576 37.9901L240.333 36.6085L238.944 36.805L189.441 43.8068L153.508 9.04511Z"
-																fill="url(#paint0_linear_8_129)"></path>
-															<path id="CHECK" fill-rule="evenodd" clip-rule="evenodd"
-																d="M211.846 101.33L232.351 121.836L130.267 223.919L74.0986 167.751L94.6042 147.246L130.267 182.908L211.846 101.33Z"
-																fill="#f51815"></path>
-														</g>
-														<defs>
-															<linearGradient id="paint0_linear_8_129" x1="152.5"
-																y1="8.06982" x2="152.5" y2="306.931"
-																gradientUnits="userSpaceOnUse">
-																<stop stop-color="#F1F5FF"></stop>
-																<stop offset="1" stop-color="#CDD2DD"></stop>
-															</linearGradient>
-														</defs>
-													</svg> </span>
-												<span class="elementor-icon-list-text">Completo</span>
-											</li>
-											<li class="elementor-icon-list-item">
-												<span class="elementor-icon-list-icon">
-													<svg xmlns="http://www.w3.org/2000/svg" width="305" height="315"
-														viewBox="0 0 305 315" fill="none">
-														<g id="CHECK SIM">
-															<path id="VECTOR"
-																d="M153.508 9.04511L152.5 8.06982L151.492 9.04511L115.559 43.8068L66.0561 36.805L64.6672 36.6085L64.4248 37.9901L55.7868 87.2338L11.6225 110.666L10.3834 111.324L10.9994 112.584L32.9559 157.5L10.9994 202.416L10.3834 203.677L11.6225 204.334L55.7868 227.767L64.4248 277.01L64.6672 278.393L66.0561 278.195L115.559 271.194L151.492 305.955L152.5 306.931L153.508 305.955L189.441 271.194L238.944 278.195L240.333 278.393L240.576 277.01L249.214 227.767L293.378 204.334L294.617 203.677L294.001 202.416L272.045 157.5L294.001 112.584L294.617 111.324L293.378 110.666L249.214 87.2338L240.576 37.9901L240.333 36.6085L238.944 36.805L189.441 43.8068L153.508 9.04511Z"
-																fill="url(#paint0_linear_8_129)"></path>
-															<path id="CHECK" fill-rule="evenodd" clip-rule="evenodd"
-																d="M211.846 101.33L232.351 121.836L130.267 223.919L74.0986 167.751L94.6042 147.246L130.267 182.908L211.846 101.33Z"
-																fill="#f51815"></path>
-														</g>
-														<defs>
-															<linearGradient id="paint0_linear_8_129" x1="152.5"
-																y1="8.06982" x2="152.5" y2="306.931"
-																gradientUnits="userSpaceOnUse">
-																<stop stop-color="#F1F5FF"></stop>
-																<stop offset="1" stop-color="#CDD2DD"></stop>
-															</linearGradient>
-														</defs>
-													</svg> </span>
-												<span class="elementor-icon-list-text">Sem fidelidade</span>
-											</li>
-											<li class="elementor-icon-list-item">
-												<span class="elementor-icon-list-icon">
-													<svg xmlns="http://www.w3.org/2000/svg" width="305" height="315"
-														viewBox="0 0 305 315" fill="none">
-														<g id="CHECK SIM">
-															<path id="VECTOR"
-																d="M153.508 9.04511L152.5 8.06982L151.492 9.04511L115.559 43.8068L66.0561 36.805L64.6672 36.6085L64.4248 37.9901L55.7868 87.2338L11.6225 110.666L10.3834 111.324L10.9994 112.584L32.9559 157.5L10.9994 202.416L10.3834 203.677L11.6225 204.334L55.7868 227.767L64.4248 277.01L64.6672 278.393L66.0561 278.195L115.559 271.194L151.492 305.955L152.5 306.931L153.508 305.955L189.441 271.194L238.944 278.195L240.333 278.393L240.576 277.01L249.214 227.767L293.378 204.334L294.617 203.677L294.001 202.416L272.045 157.5L294.001 112.584L294.617 111.324L293.378 110.666L249.214 87.2338L240.576 37.9901L240.333 36.6085L238.944 36.805L189.441 43.8068L153.508 9.04511Z"
-																fill="url(#paint0_linear_8_129)"></path>
-															<path id="CHECK" fill-rule="evenodd" clip-rule="evenodd"
-																d="M211.846 101.33L232.351 121.836L130.267 223.919L74.0986 167.751L94.6042 147.246L130.267 182.908L211.846 101.33Z"
-																fill="#f51815"></path>
-														</g>
-														<defs>
-															<linearGradient id="paint0_linear_8_129" x1="152.5"
-																y1="8.06982" x2="152.5" y2="306.931"
-																gradientUnits="userSpaceOnUse">
-																<stop stop-color="#F1F5FF"></stop>
-																<stop offset="1" stop-color="#CDD2DD"></stop>
-															</linearGradient>
-														</defs>
-													</svg> </span>
-												<span class="elementor-icon-list-text">Assista em 5 telas
-													simultanêas</span>
-											</li>
-											<li class="elementor-icon-list-item">
-												<span class="elementor-icon-list-icon">
-													<svg xmlns="http://www.w3.org/2000/svg" width="305" height="315"
-														viewBox="0 0 305 315" fill="none">
-														<g id="CHECK SIM">
-															<path id="VECTOR"
-																d="M153.508 9.04511L152.5 8.06982L151.492 9.04511L115.559 43.8068L66.0561 36.805L64.6672 36.6085L64.4248 37.9901L55.7868 87.2338L11.6225 110.666L10.3834 111.324L10.9994 112.584L32.9559 157.5L10.9994 202.416L10.3834 203.677L11.6225 204.334L55.7868 227.767L64.4248 277.01L64.6672 278.393L66.0561 278.195L115.559 271.194L151.492 305.955L152.5 306.931L153.508 305.955L189.441 271.194L238.944 278.195L240.333 278.393L240.576 277.01L249.214 227.767L293.378 204.334L294.617 203.677L294.001 202.416L272.045 157.5L294.001 112.584L294.617 111.324L293.378 110.666L249.214 87.2338L240.576 37.9901L240.333 36.6085L238.944 36.805L189.441 43.8068L153.508 9.04511Z"
-																fill="url(#paint0_linear_8_129)"></path>
-															<path id="CHECK" fill-rule="evenodd" clip-rule="evenodd"
-																d="M211.846 101.33L232.351 121.836L130.267 223.919L74.0986 167.751L94.6042 147.246L130.267 182.908L211.846 101.33Z"
-																fill="#f51815"></path>
-														</g>
-														<defs>
-															<linearGradient id="paint0_linear_8_129" x1="152.5"
-																y1="8.06982" x2="152.5" y2="306.931"
-																gradientUnits="userSpaceOnUse">
-																<stop stop-color="#F1F5FF"></stop>
-																<stop offset="1" stop-color="#CDD2DD"></stop>
-															</linearGradient>
-														</defs>
-													</svg> </span>
-												<span class="elementor-icon-list-text">+ de 120 mil conteúdos</span>
-											</li>
-											<li class="elementor-icon-list-item">
-												<span class="elementor-icon-list-icon">
-													<svg xmlns="http://www.w3.org/2000/svg" width="305" height="315"
-														viewBox="0 0 305 315" fill="none">
-														<g id="CHECK SIM">
-															<path id="VECTOR"
-																d="M153.508 9.04511L152.5 8.06982L151.492 9.04511L115.559 43.8068L66.0561 36.805L64.6672 36.6085L64.4248 37.9901L55.7868 87.2338L11.6225 110.666L10.3834 111.324L10.9994 112.584L32.9559 157.5L10.9994 202.416L10.3834 203.677L11.6225 204.334L55.7868 227.767L64.4248 277.01L64.6672 278.393L66.0561 278.195L115.559 271.194L151.492 305.955L152.5 306.931L153.508 305.955L189.441 271.194L238.944 278.195L240.333 278.393L240.576 277.01L249.214 227.767L293.378 204.334L294.617 203.677L294.001 202.416L272.045 157.5L294.001 112.584L294.617 111.324L293.378 110.666L249.214 87.2338L240.576 37.9901L240.333 36.6085L238.944 36.805L189.441 43.8068L153.508 9.04511Z"
-																fill="url(#paint0_linear_8_129)"></path>
-															<path id="CHECK" fill-rule="evenodd" clip-rule="evenodd"
-																d="M211.846 101.33L232.351 121.836L130.267 223.919L74.0986 167.751L94.6042 147.246L130.267 182.908L211.846 101.33Z"
-																fill="#f51815"></path>
-														</g>
-														<defs>
-															<linearGradient id="paint0_linear_8_129" x1="152.5"
-																y1="8.06982" x2="152.5" y2="306.931"
-																gradientUnits="userSpaceOnUse">
-																<stop stop-color="#F1F5FF"></stop>
-																<stop offset="1" stop-color="#CDD2DD"></stop>
-															</linearGradient>
-														</defs>
-													</svg> </span>
-												<span class="elementor-icon-list-text">Canais Adultos (opcional)</span>
-											</li>
-											<li class="elementor-icon-list-item">
-												<span class="elementor-icon-list-icon">
-													<svg xmlns="http://www.w3.org/2000/svg" width="305" height="315"
-														viewBox="0 0 305 315" fill="none">
-														<g id="CHECK SIM">
-															<path id="VECTOR"
-																d="M153.508 9.04511L152.5 8.06982L151.492 9.04511L115.559 43.8068L66.0561 36.805L64.6672 36.6085L64.4248 37.9901L55.7868 87.2338L11.6225 110.666L10.3834 111.324L10.9994 112.584L32.9559 157.5L10.9994 202.416L10.3834 203.677L11.6225 204.334L55.7868 227.767L64.4248 277.01L64.6672 278.393L66.0561 278.195L115.559 271.194L151.492 305.955L152.5 306.931L153.508 305.955L189.441 271.194L238.944 278.195L240.333 278.393L240.576 277.01L249.214 227.767L293.378 204.334L294.617 203.677L294.001 202.416L272.045 157.5L294.001 112.584L294.617 111.324L293.378 110.666L249.214 87.2338L240.576 37.9901L240.333 36.6085L238.944 36.805L189.441 43.8068L153.508 9.04511Z"
-																fill="url(#paint0_linear_8_129)"></path>
-															<path id="CHECK" fill-rule="evenodd" clip-rule="evenodd"
-																d="M211.846 101.33L232.351 121.836L130.267 223.919L74.0986 167.751L94.6042 147.246L130.267 182.908L211.846 101.33Z"
-																fill="#f51815"></path>
-														</g>
-														<defs>
-															<linearGradient id="paint0_linear_8_129" x1="152.5"
-																y1="8.06982" x2="152.5" y2="306.931"
-																gradientUnits="userSpaceOnUse">
-																<stop stop-color="#F1F5FF"></stop>
-																<stop offset="1" stop-color="#CDD2DD"></stop>
-															</linearGradient>
-														</defs>
-													</svg> </span>
-												<span class="elementor-icon-list-text">Qualidade SD/HD/FHD/4K</span>
-											</li>
-											<li class="elementor-icon-list-item">
-												<span class="elementor-icon-list-icon">
-													<svg xmlns="http://www.w3.org/2000/svg" width="305" height="315"
-														viewBox="0 0 305 315" fill="none">
-														<g id="CHECK SIM">
-															<path id="VECTOR"
-																d="M153.508 9.04511L152.5 8.06982L151.492 9.04511L115.559 43.8068L66.0561 36.805L64.6672 36.6085L64.4248 37.9901L55.7868 87.2338L11.6225 110.666L10.3834 111.324L10.9994 112.584L32.9559 157.5L10.9994 202.416L10.3834 203.677L11.6225 204.334L55.7868 227.767L64.4248 277.01L64.6672 278.393L66.0561 278.195L115.559 271.194L151.492 305.955L152.5 306.931L153.508 305.955L189.441 271.194L238.944 278.195L240.333 278.393L240.576 277.01L249.214 227.767L293.378 204.334L294.617 203.677L294.001 202.416L272.045 157.5L294.001 112.584L294.617 111.324L293.378 110.666L249.214 87.2338L240.576 37.9901L240.333 36.6085L238.944 36.805L189.441 43.8068L153.508 9.04511Z"
-																fill="url(#paint0_linear_8_129)"></path>
-															<path id="CHECK" fill-rule="evenodd" clip-rule="evenodd"
-																d="M211.846 101.33L232.351 121.836L130.267 223.919L74.0986 167.751L94.6042 147.246L130.267 182.908L211.846 101.33Z"
-																fill="#f51815"></path>
-														</g>
-														<defs>
-															<linearGradient id="paint0_linear_8_129" x1="152.5"
-																y1="8.06982" x2="152.5" y2="306.931"
-																gradientUnits="userSpaceOnUse">
-																<stop stop-color="#F1F5FF"></stop>
-																<stop offset="1" stop-color="#CDD2DD"></stop>
-															</linearGradient>
-														</defs>
-													</svg> </span>
-												<span class="elementor-icon-list-text">Assista na Smart Tv</span>
-											</li>
-											<li class="elementor-icon-list-item">
-												<span class="elementor-icon-list-icon">
-													<svg xmlns="http://www.w3.org/2000/svg" width="305" height="315"
-														viewBox="0 0 305 315" fill="none">
-														<g id="CHECK SIM">
-															<path id="VECTOR"
-																d="M153.508 9.04511L152.5 8.06982L151.492 9.04511L115.559 43.8068L66.0561 36.805L64.6672 36.6085L64.4248 37.9901L55.7868 87.2338L11.6225 110.666L10.3834 111.324L10.9994 112.584L32.9559 157.5L10.9994 202.416L10.3834 203.677L11.6225 204.334L55.7868 227.767L64.4248 277.01L64.6672 278.393L66.0561 278.195L115.559 271.194L151.492 305.955L152.5 306.931L153.508 305.955L189.441 271.194L238.944 278.195L240.333 278.393L240.576 277.01L249.214 227.767L293.378 204.334L294.617 203.677L294.001 202.416L272.045 157.5L294.001 112.584L294.617 111.324L293.378 110.666L249.214 87.2338L240.576 37.9901L240.333 36.6085L238.944 36.805L189.441 43.8068L153.508 9.04511Z"
-																fill="url(#paint0_linear_8_129)"></path>
-															<path id="CHECK" fill-rule="evenodd" clip-rule="evenodd"
-																d="M211.846 101.33L232.351 121.836L130.267 223.919L74.0986 167.751L94.6042 147.246L130.267 182.908L211.846 101.33Z"
-																fill="#f51815"></path>
-														</g>
-														<defs>
-															<linearGradient id="paint0_linear_8_129" x1="152.5"
-																y1="8.06982" x2="152.5" y2="306.931"
-																gradientUnits="userSpaceOnUse">
-																<stop stop-color="#F1F5FF"></stop>
-																<stop offset="1" stop-color="#CDD2DD"></stop>
-															</linearGradient>
-														</defs>
-													</svg> </span>
-												<span class="elementor-icon-list-text">Assista no Smartphone</span>
-											</li>
-											<li class="elementor-icon-list-item">
-												<span class="elementor-icon-list-icon">
-													<svg xmlns="http://www.w3.org/2000/svg" width="305" height="315"
-														viewBox="0 0 305 315" fill="none">
-														<g id="CHECK SIM">
-															<path id="VECTOR"
-																d="M153.508 9.04511L152.5 8.06982L151.492 9.04511L115.559 43.8068L66.0561 36.805L64.6672 36.6085L64.4248 37.9901L55.7868 87.2338L11.6225 110.666L10.3834 111.324L10.9994 112.584L32.9559 157.5L10.9994 202.416L10.3834 203.677L11.6225 204.334L55.7868 227.767L64.4248 277.01L64.6672 278.393L66.0561 278.195L115.559 271.194L151.492 305.955L152.5 306.931L153.508 305.955L189.441 271.194L238.944 278.195L240.333 278.393L240.576 277.01L249.214 227.767L293.378 204.334L294.617 203.677L294.001 202.416L272.045 157.5L294.001 112.584L294.617 111.324L293.378 110.666L249.214 87.2338L240.576 37.9901L240.333 36.6085L238.944 36.805L189.441 43.8068L153.508 9.04511Z"
-																fill="url(#paint0_linear_8_129)"></path>
-															<path id="CHECK" fill-rule="evenodd" clip-rule="evenodd"
-																d="M211.846 101.33L232.351 121.836L130.267 223.919L74.0986 167.751L94.6042 147.246L130.267 182.908L211.846 101.33Z"
-																fill="#f51815"></path>
-														</g>
-														<defs>
-															<linearGradient id="paint0_linear_8_129" x1="152.5"
-																y1="8.06982" x2="152.5" y2="306.931"
-																gradientUnits="userSpaceOnUse">
-																<stop stop-color="#F1F5FF"></stop>
-																<stop offset="1" stop-color="#CDD2DD"></stop>
-															</linearGradient>
-														</defs>
-													</svg> </span>
-												<span class="elementor-icon-list-text">Assista na TV Box</span>
-											</li>
-											<li class="elementor-icon-list-item">
-												<span class="elementor-icon-list-icon">
-													<svg xmlns="http://www.w3.org/2000/svg" width="305" height="315"
-														viewBox="0 0 305 315" fill="none">
-														<g id="CHECK SIM">
-															<path id="VECTOR"
-																d="M153.508 9.04511L152.5 8.06982L151.492 9.04511L115.559 43.8068L66.0561 36.805L64.6672 36.6085L64.4248 37.9901L55.7868 87.2338L11.6225 110.666L10.3834 111.324L10.9994 112.584L32.9559 157.5L10.9994 202.416L10.3834 203.677L11.6225 204.334L55.7868 227.767L64.4248 277.01L64.6672 278.393L66.0561 278.195L115.559 271.194L151.492 305.955L152.5 306.931L153.508 305.955L189.441 271.194L238.944 278.195L240.333 278.393L240.576 277.01L249.214 227.767L293.378 204.334L294.617 203.677L294.001 202.416L272.045 157.5L294.001 112.584L294.617 111.324L293.378 110.666L249.214 87.2338L240.576 37.9901L240.333 36.6085L238.944 36.805L189.441 43.8068L153.508 9.04511Z"
-																fill="url(#paint0_linear_8_129)"></path>
-															<path id="CHECK" fill-rule="evenodd" clip-rule="evenodd"
-																d="M211.846 101.33L232.351 121.836L130.267 223.919L74.0986 167.751L94.6042 147.246L130.267 182.908L211.846 101.33Z"
-																fill="#f51815"></path>
-														</g>
-														<defs>
-															<linearGradient id="paint0_linear_8_129" x1="152.5"
-																y1="8.06982" x2="152.5" y2="306.931"
-																gradientUnits="userSpaceOnUse">
-																<stop stop-color="#F1F5FF"></stop>
-																<stop offset="1" stop-color="#CDD2DD"></stop>
-															</linearGradient>
-														</defs>
-													</svg> </span>
-												<span class="elementor-icon-list-text">Assista no computador</span>
-											</li>
-										</ul>
-									</div>
-									<div class="elementor-element elementor-element-5ebca210 elementor-widget elementor-widget-text-editor"
-										data-id="5ebca210" data-element_type="widget"
-										data-widget_type="text-editor.default">
-										<p>Por apenas:</p>
-									</div>
-									<div class="elementor-element elementor-element-6ad94502 elementor-align-center elementor-widget__width-initial elementor-widget elementor-widget-button"
-										data-id="6ad94502" data-element_type="widget" data-widget_type="button.default">
-										<a class="elementor-button elementor-size-sm" role="button">
-											<span class="elementor-button-content-wrapper">
-												<span class="elementor-button-icon">
-													<svg aria-hidden="true" class="e-font-icon-svg e-fas-gift"
-														viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-														<path
-															d="M32 448c0 17.7 14.3 32 32 32h160V320H32v128zm256 32h160c17.7 0 32-14.3 32-32V320H288v160zm192-320h-42.1c6.2-12.1 10.1-25.5 10.1-40 0-48.5-39.5-88-88-88-41.6 0-68.5 21.3-103 68.3-34.5-47-61.4-68.3-103-68.3-48.5 0-88 39.5-88 88 0 14.5 3.8 27.9 10.1 40H32c-17.7 0-32 14.3-32 32v80c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16v-80c0-17.7-14.3-32-32-32zm-326.1 0c-22.1 0-40-17.9-40-40s17.9-40 40-40c19.9 0 34.6 3.3 86.1 80h-86.1zm206.1 0h-86.1c51.4-76.5 65.7-80 86.1-80 22.1 0 40 17.9 40 40s-17.9 40-40 40z">
-														</path>
-													</svg> </span>
-												<span class="elementor-button-text">46% DE DESCONTO </span>
-											</span>
-										</a>
-									</div>
-									<div class="elementor-element elementor-element-22c573eb elementor-widget elementor-widget-heading"
-										data-id="22c573eb" data-element_type="widget"
-										data-widget_type="heading.default">
-										<h2 class="elementor-heading-title elementor-size-default">R$ 128,90</h2>
-									</div>
-									<div class="elementor-element elementor-element-16cbe5ef elementor-widget elementor-widget-text-editor"
-										data-id="16cbe5ef" data-element_type="widget"
-										data-widget_type="text-editor.default">
-										<p><em><strong>IGUAL A 10,74 POR MÊS</strong></em></p>
-									</div>
-									<div class="elementor-element elementor-element-7c906a8d elementor-align-justify elementor-widget__width-initial elementor-widget elementor-widget-button"
-										data-id="7c906a8d" data-element_type="widget" data-widget_type="button.default">
-										<a class="elementor-button elementor-button-link elementor-size-sm"
-											href="https://pay.kirvano.com/57880d68-56f1-45aa-b93b-19178c04f573">
-											<span class="elementor-button-content-wrapper">
-												<span class="elementor-button-text">Quero assinar agora!</span>
-											</span>
-										</a>
-									</div>
-								</div>
-							</div>-->
 						</div>
 					</div>
 				</div>
@@ -1986,22 +1735,22 @@
 						</div>
 						<div class="swiper printsWpp">
 							<div class="swiper-wrapper">
-								<div class="swiper-slide"><img src="images/testemonial/1.jpg"
-										alt="Print de cliente"></div>
-								<div class="swiper-slide"><img src="images/testemonial/2.jpg"
-										alt="Print de cliente"></div>
-								<div class="swiper-slide"><img src="images/testemonial/3.jpg"
-										alt="Print de cliente"></div>
-								<div class="swiper-slide"><img src="images/testemonial/4.jpg"
-										alt="Print de cliente"></div>
-											<div class="swiper-slide"><img src="images/testemonial/1.jpg"
-										alt="Print de cliente"></div>
-								<div class="swiper-slide"><img src="images/testemonial/2.jpg"
-										alt="Print de cliente"></div>
-								<div class="swiper-slide"><img src="images/testemonial/3.jpg"
-										alt="Print de cliente"></div>
-								<div class="swiper-slide"><img src="images/testemonial/4.jpg"
-										alt="Print de cliente"></div>
+								<div class="swiper-slide"><img src="images/testemonial/1.jpg" alt="Print de cliente">
+								</div>
+								<div class="swiper-slide"><img src="images/testemonial/2.jpg" alt="Print de cliente">
+								</div>
+								<div class="swiper-slide"><img src="images/testemonial/3.jpg" alt="Print de cliente">
+								</div>
+								<div class="swiper-slide"><img src="images/testemonial/4.jpg" alt="Print de cliente">
+								</div>
+								<div class="swiper-slide"><img src="images/testemonial/1.jpg" alt="Print de cliente">
+								</div>
+								<div class="swiper-slide"><img src="images/testemonial/2.jpg" alt="Print de cliente">
+								</div>
+								<div class="swiper-slide"><img src="images/testemonial/3.jpg" alt="Print de cliente">
+								</div>
+								<div class="swiper-slide"><img src="images/testemonial/4.jpg" alt="Print de cliente">
+								</div>
 							</div>
 						</div>
 
@@ -2204,7 +1953,8 @@
 							data-id="755016d" data-element_type="container">
 							<div class="elementor-element elementor-element-dc9bdd2 elementor-widget elementor-widget-heading"
 								data-id="dc9bdd2" data-element_type="widget" data-widget_type="heading.default">
-								<h2 class="elementor-heading-title elementor-size-default">Nada menos que <strong>R$ 514,85</strong> <br> por
+								<h2 class="elementor-heading-title elementor-size-default">Nada menos que <strong>R$
+										514,85</strong> <br> por
 									mês se contratasse tudo separado!</h2>
 							</div>
 						</div>
@@ -2893,31 +2643,31 @@
 	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 	<script>
 
-var series = new Swiper(".seriesSwiper", {
-    slidesPerView: 8,
-    spaceBetween: 8,
-    loop: true,
-    autoplay: { delay: 0, disableOnInteraction: false, reverseDirection: true },
-    speed: 5000,
-    breakpoints: {
-        320: { slidesPerView: 3 },
-        768: { slidesPerView: 5 },
-        1024: { slidesPerView: 8 }
-    }
-});
+		var series = new Swiper(".seriesSwiper", {
+			slidesPerView: 8,
+			spaceBetween: 8,
+			loop: true,
+			autoplay: { delay: 0, disableOnInteraction: false, reverseDirection: true },
+			speed: 5000,
+			breakpoints: {
+				320: { slidesPerView: 3 },
+				768: { slidesPerView: 5 },
+				1024: { slidesPerView: 8 }
+			}
+		});
 
 		var filmes = new Swiper(".filmesSwiper", {
-    slidesPerView: 8,
-    spaceBetween: 8,
-    loop: true,
-    autoplay: { delay: 0, disableOnInteraction: false, reverseDirection: false },
-    speed: 5000,
-    breakpoints: {
-        320: { slidesPerView: 3 },
-        768: { slidesPerView: 5 },
-        1024: { slidesPerView: 8 }
-    }
-});
+			slidesPerView: 8,
+			spaceBetween: 8,
+			loop: true,
+			autoplay: { delay: 0, disableOnInteraction: false, reverseDirection: false },
+			speed: 5000,
+			breakpoints: {
+				320: { slidesPerView: 3 },
+				768: { slidesPerView: 5 },
+				1024: { slidesPerView: 8 }
+			}
+		});
 
 
 
