@@ -447,23 +447,25 @@
 		}
 
 
-.planosSwiper .swiper-wrapper {
-  display: flex;
-  align-items: stretch; /* faz todos os slides esticarem até o maior */
-}
+		.planosSwiper .swiper-wrapper {
+			display: flex;
+			align-items: stretch;
+			/* faz todos os slides esticarem até o maior */
+		}
 
-.planosSwiper .swiper-slide {
-  display: flex;
-  height: auto;
-}
+		.planosSwiper .swiper-slide {
+			display: flex;
+			height: auto;
+		}
 
-.planosSwiper .swiper-slide > div {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%; /* ocupa toda a altura do slide */
-}
+		.planosSwiper .swiper-slide>div {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			width: 100%;
+			height: 100%;
+			/* ocupa toda a altura do slide */
+		}
 
 
 		.elementor-heading-title {
@@ -473,12 +475,17 @@
 			font-size: clamp(1rem, 5vw, 2rem);
 		}
 
+		.preco-plano {
+			font-size: 2rem !important;
+			line-height: 1.2 !important;
+		}
+
 		@media (max-width: 768px) {
-  .preco-plano {
-    font-size: 1.8rem !important;
-    line-height: 1.2 !important;
-  }
-}
+			.preco-plano {
+				font-size: 1.8rem !important;
+				line-height: 1.2 !important;
+			}
+		}
 	</style>
 </head>
 
@@ -1885,128 +1892,128 @@
 	</footer>
 	<script>
 		const planosList = [
-  {
-    nome: "Plano Básico",
-    type: "MENSAL",
-    preco: 29.99,
-    url: "https://pay.kirvano.com/68416e69-c41c-4c54-836c-a01ba765c10e",
-    items: [
-      "Completo",
-      "Sem fidelidade",
-      "1 tela",
-      "+89 mil conteúdos",
-      "Canais Adultos opcional",
-      "SD/HD/FHD/4K",
-      "Smart TV",
-      "Smartphone",
-      "TV Box",
-      "Computador",
-      "Conteúdos semanais",
-      "Suporte chat"
-    ]
-  },
-  {
-    nome: "Plano Plus",
-    type: "MENSAL",
-    preco: 49.99,
-    url: "https://pay.kirvano.com/6431980d-4507-4330-9388-dbbb8a0c00d4",
-    items: [
-      "Completo",
-      "Sem fidelidade",
-      "2 telas",
-      "+89 mil conteúdos",
-      "Canais Adultos opcional",
-      "SD/HD/FHD/4K",
-      "Smart TV e Smartphone",
-      "Smartphone",
-      "TV Box e PC",
-      "Tablets e videogames",
-	  "Suporte 24h",
-      "Catálogo atualizado",
-	  "Conexão estável"
-    ]
-  },
-  {
-    nome: "Plano Premium",
-    type: "MENSAL",
-    preco: 69.99,
-    url: "https://pay.kirvano.com/fc17b43d-9277-46e7-b7d4-8bda4ba3d6d0",
-    items: [
-      "Ultra Completo",
-      "Sem fidelidade",
-      "4 telas",
-      "+89 mil conteúdos",
-      "Canais Adultos liberados",
-      "SD/HD/FHD/4K HDR",
-      "Novos lançamentos",
-      "Todos os dispositivos",
-      "Assistentes de voz",
-      "Suporte VIP 24h",
-      "Offline/Gravação",
-      "Conteúdos Premium"
-    ]
-  },
-  {
-    nome: "Plano Básico",
-    type: "TRIMESTRAL",
-    preco: 74.99,
-    url: "https://pay.kirvano.com/9415dee4-0287-4803-836e-318806b7e817",
-    items: [
-      "Completo",
-      "Sem fidelidade",
-      "1 tela",
-      "+89 mil conteúdos",
-      "Canais Adultos opcional",
-      "SD/HD/FHD/4K",
-      "Smart TV e Smartphone",
-      "TV Box e PC",
-      "Conteúdos semanais",
-      "Economia trimestral",
-      "Suporte rápido",
-      "Conexão estável"
-    ]
-  },
-  {
-    nome: "Plano Plus",
-    type: "SEMESTRAL",
-    preco: 249.99,
-    url: "https://pay.kirvano.com/0a7f95b8-cf9c-4a50-9288-03e7c22f8a4f",
-    items: [
-      "Completo + bônus",
-      "Sem fidelidade",
-      "3 telas",
-      "+89 mil conteúdos",
-      "Canais Adultos opcional",
-      "SD/HD/FHD/4K",
-      "Todos os dispositivos",
-      "Suporte 24h",
-      "Conteúdos exclusivos",
-      "Economia semestral",
-      "Backup de listas",
-      "Atualizações automáticas"
-    ]
-  },
-  {
-    nome: "Plano Premium",
-    type: "ANUAL",
-    preco: 449.99,
-    url: "https://pay.kirvano.com/f00a4f14-2ea6-441d-8876-790db78328aa",
-    items: [
-      "Ultra Completo + Premium",
-      "Sem fidelidade",
-      "5 telas",
-      "+89 mil conteúdos",
-      "Canais Adultos opcionais",
-      "SD/HD/FHD/4K HDR",
-      "Novos lançamentos",
-      "Todos os dispositivos",
-      "Controle por voz",
-      "Suporte VIP 24h",
-      "Economia anual",
-      "Bônus especiais"
-    ]
-  }
-];
+			{
+				nome: "Plano Básico",
+				type: "MENSAL",
+				preco: 29.99,
+				url: "https://pay.kirvano.com/68416e69-c41c-4c54-836c-a01ba765c10e",
+				items: [
+					"Completo",
+					"Sem fidelidade",
+					"1 tela",
+					"+89 mil conteúdos",
+					"Canais Adultos opcional",
+					"SD/HD/FHD/4K",
+					"Smart TV",
+					"Smartphone",
+					"TV Box",
+					"Computador",
+					"Conteúdos semanais",
+					"Suporte chat"
+				]
+			},
+			{
+				nome: "Plano Plus",
+				type: "MENSAL",
+				preco: 49.99,
+				url: "https://pay.kirvano.com/6431980d-4507-4330-9388-dbbb8a0c00d4",
+				items: [
+					"Completo",
+					"Sem fidelidade",
+					"2 telas",
+					"+89 mil conteúdos",
+					"Canais Adultos opcional",
+					"SD/HD/FHD/4K",
+					"Smart TV e Smartphone",
+					"Smartphone",
+					"TV Box e PC",
+					"Tablets e videogames",
+					"Suporte 24h",
+					"Catálogo atualizado",
+					"Conexão estável"
+				]
+			},
+			{
+				nome: "Plano Premium",
+				type: "MENSAL",
+				preco: 69.99,
+				url: "https://pay.kirvano.com/fc17b43d-9277-46e7-b7d4-8bda4ba3d6d0",
+				items: [
+					"Ultra Completo",
+					"Sem fidelidade",
+					"4 telas",
+					"+89 mil conteúdos",
+					"Canais Adultos liberados",
+					"SD/HD/FHD/4K HDR",
+					"Novos lançamentos",
+					"Todos os dispositivos",
+					"Assistentes de voz",
+					"Suporte VIP 24h",
+					"Offline/Gravação",
+					"Conteúdos Premium"
+				]
+			},
+			{
+				nome: "Plano Básico",
+				type: "TRIMESTRAL",
+				preco: 74.99,
+				url: "https://pay.kirvano.com/9415dee4-0287-4803-836e-318806b7e817",
+				items: [
+					"Completo",
+					"Sem fidelidade",
+					"1 tela",
+					"+89 mil conteúdos",
+					"Canais Adultos opcional",
+					"SD/HD/FHD/4K",
+					"Smart TV e Smartphone",
+					"TV Box e PC",
+					"Conteúdos semanais",
+					"Economia trimestral",
+					"Suporte rápido",
+					"Conexão estável"
+				]
+			},
+			{
+				nome: "Plano Plus",
+				type: "SEMESTRAL",
+				preco: 249.99,
+				url: "https://pay.kirvano.com/0a7f95b8-cf9c-4a50-9288-03e7c22f8a4f",
+				items: [
+					"Completo + bônus",
+					"Sem fidelidade",
+					"3 telas",
+					"+89 mil conteúdos",
+					"Canais Adultos opcional",
+					"SD/HD/FHD/4K",
+					"Todos os dispositivos",
+					"Suporte 24h",
+					"Conteúdos exclusivos",
+					"Economia semestral",
+					"Backup de listas",
+					"Atualizações automáticas"
+				]
+			},
+			{
+				nome: "Plano Premium",
+				type: "ANUAL",
+				preco: 449.99,
+				url: "https://pay.kirvano.com/f00a4f14-2ea6-441d-8876-790db78328aa",
+				items: [
+					"Ultra Completo + Premium",
+					"Sem fidelidade",
+					"5 telas",
+					"+89 mil conteúdos",
+					"Canais Adultos opcionais",
+					"SD/HD/FHD/4K HDR",
+					"Novos lançamentos",
+					"Todos os dispositivos",
+					"Controle por voz",
+					"Suporte VIP 24h",
+					"Economia anual",
+					"Bônus especiais"
+				]
+			}
+		];
 
 
 		const planosContainer = document.getElementById("planosContainer");
