@@ -483,6 +483,46 @@
 			}
 		}
 	</style>
+	<style>
+		/* Banner fixo no topo */
+		.top-banner {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			background: #200;
+			/* dark red */
+			color: #fff;
+			font-size: 14px;
+			padding: 6px 0;
+			overflow: hidden;
+			z-index: 1000;
+		}
+
+		/* Texto rolando */
+		.banner-text {
+			display: inline-block;
+			white-space: nowrap;
+			animation: scroll-left 15s linear infinite;
+		}
+
+		@keyframes scroll-left {
+			from {
+				transform: translateX(100%);
+			}
+
+			to {
+				transform: translateX(-100%);
+			}
+		}
+	</style>
+
+
+	<div class="top-banner">
+		<span id="banner-text" class="banner-text">
+			A Zenocine já é sucesso em sua cidade!
+		</span>
+	</div>
 
 	<div id="sale-popup" class="sale-popup"></div>
 
@@ -507,6 +547,23 @@
 
 		// Mostrar um popup a cada 6 a 12 segundos (aleatório)
 		setInterval(criarPopup, Math.floor(Math.random() * 6000) + 6000);
+	</script>
+
+	<script>
+		async function setCityBanner() {
+			try {
+				// API grátis de geolocalização por IP
+				let res = await fetch("https://ipapi.co/json/");
+				let data = await res.json();
+				let city = data.city || "sua cidade";
+
+				document.getElementById("banner-text").innerText =
+					`A Zenocine já é sucesso em ${city}! | Mais de 500 pessoas assistem todos os dias. | Experimente hoje mesmo e descubra o motivo!`;
+			} catch (e) {
+				console.log("Erro ao buscar cidade:", e);
+			}
+		}
+		setCityBanner();
 	</script>
 
 	<a class="skip-link screen-reader-text" href="#content">Ir para o conteúdo</a>
