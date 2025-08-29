@@ -556,7 +556,7 @@
 				// Obtém o código do município com base na cidade
 				let municipioRes = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/municipios/${data.city_code}`);
 				let municipioData = await municipioRes.json();
-				let population = municipioData.populacao || 500;
+				let population = municipioData.populacao || 668;
 
 				// Calcula o número fixo de pessoas assistindo
 				let viewers;
