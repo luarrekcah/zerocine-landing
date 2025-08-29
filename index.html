@@ -446,21 +446,34 @@
 			border-radius: 10px;
 		}
 
-		
+
 		.planosSwiper .swiper-slide {
-  display: flex;
-  height: auto; /* mobile: cresce conforme o conteúdo */
+			display: flex;
+			height: auto;
+			/* mobile: cresce conforme o conteúdo */
+		}
+
+		.planosSwiper .swiper-slide>div {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			width: 100%;
+			height: auto;
+		}
+
+		.elementor-heading-title {
+			white-space: normal;
+			word-break: break-word;
+
+			font-size: clamp(1rem, 5vw, 2rem);
+		}
+
+		@media (max-width: 768px) {
+  .preco-plano {
+    font-size: 1.8rem !important;
+    line-height: 1.2 !important;
+  }
 }
-
-.planosSwiper .swiper-slide > div {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  height: auto;
-}
-
-
 	</style>
 </head>
 
@@ -687,8 +700,9 @@
 					<div class="e-con-inner">
 						<div class="elementor-element elementor-element-1d677898 elementor-widget__width-initial elementor-widget elementor-widget-heading"
 							data-id="1d677898" data-element_type="widget" data-widget_type="heading.default">
-							<h2 class="elementor-heading-title elementor-size-default">Assine já e desbloqueie <strong style="color: #f51815">todo o
-								universo</strong> do seu entretenimento!
+							<h2 class="elementor-heading-title elementor-size-default">Assine já e desbloqueie <strong
+									style="color: #f51815">todo o
+									universo</strong> do seu entretenimento!
 							</h2>
 						</div>
 						<style>
@@ -704,15 +718,13 @@
 								opacity: 1;
 							}
 
-							
+
 							.planosSwiper {
 								position: relative;
 								/* necessário para que os botões usem o swiper como referência */
 								padding: 0 50px;
 								/* espaço para as setas não ficarem em cima do conteúdo */
 							}
-
-							
 						</style>
 						<div class="swiper planosSwiper">
 							<div class="swiper-wrapper" id="planosContainer"></div>
@@ -832,9 +844,10 @@
 						<div class="e-con-inner">
 							<div class="elementor-element elementor-element-246cd07 elementor-widget__width-initial elementor-widget elementor-widget-heading"
 								data-id="246cd07" data-element_type="widget" data-widget_type="heading.default">
-								<h2 class="elementor-heading-title elementor-size-default">Confira tudo o que <strong style="color: #f51815">só o
-									Zenocine
-									oferece</strong>.</h2>
+								<h2 class="elementor-heading-title elementor-size-default">Confira tudo o que <strong
+										style="color: #f51815">só o
+										Zenocine
+										oferece</strong>.</h2>
 							</div>
 							<div class="elementor-element elementor-element-89d4bdc e-grid e-con-full e-con e-child"
 								data-id="89d4bdc" data-element_type="container">
@@ -956,7 +969,8 @@
 								data-id="939fee9" data-element_type="widget" data-widget_type="heading.default">
 								<h2 class="elementor-heading-title elementor-size-default">Descubra porque nossos
 									clientes
-									<strong style="color: #f51815">nos recomendam</strong></h2>
+									<strong style="color: #f51815">nos recomendam</strong>
+								</h2>
 							</div>
 							<div class="swiper printsWpp">
 								<div class="swiper-wrapper">
@@ -1007,7 +1021,8 @@
 									data-id="8817720" data-element_type="widget" data-widget_type="heading.default">
 									<h2 class="elementor-heading-title elementor-size-default">Seus serviços de
 										streaming,
-										<strong style="color: #f51815">todos em um só clique</strong>.</h2>
+										<strong style="color: #f51815">todos em um só clique</strong>.
+									</h2>
 								</div>
 							</div>
 							<div class="elementor-element elementor-element-1cfcc10 e-con-full e-flex e-con e-child"
@@ -1191,10 +1206,11 @@
 								data-id="88604d8" data-element_type="container">
 								<div class="elementor-element elementor-element-f1a9368 elementor-widget-mobile__width-initial elementor-widget elementor-widget-heading"
 									data-id="f1a9368" data-element_type="widget" data-widget_type="heading.default">
-									<h2 class="elementor-heading-title elementor-size-default">Veja quanto você <strong style="color: #f51815">
-										pagaria
-										assinando cada plataforma
-									</strong> separadamente.</h2>
+									<h2 class="elementor-heading-title elementor-size-default">Veja quanto você <strong
+											style="color: #f51815">
+											pagaria
+											assinando cada plataforma
+										</strong> separadamente.</h2>
 								</div>
 							</div>
 							<div class="elementor-element elementor-element-755016d e-con-full e-flex e-con e-child"
@@ -2055,8 +2071,10 @@
 												<div class="elementor-element elementor-element-16042ff9 elementor-widget elementor-widget-heading"
 													data-id="16042ff9" data-element_type="widget"
 													data-widget_type="heading.default">
-													<h2 class="elementor-heading-title elementor-size-default">${new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(plano.preco)}
-													</h2>
+													<h2 class="elementor-heading-title elementor-size-default preco-plano">
+  ${new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(plano.preco)}
+</h2>
+
 												</div>
 												<div class="elementor-element elementor-element-66b6bab elementor-align-justify elementor-widget__width-initial elementor-widget elementor-widget-button"
 													data-id="66b6bab" data-element_type="widget"
