@@ -599,44 +599,48 @@
 								</a>
 							</div>
 
-<style>
-.logosSwiper {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  -webkit-mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
-  mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
-  mask-repeat: no-repeat;
-  mask-size: 100% 100%;
-}
+							<style>
+								.logosSwiper {
+									width: 100%;
+									overflow: hidden;
+									position: relative;
+									-webkit-mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
+									-webkit-mask-repeat: no-repeat;
+									-webkit-mask-size: 100% 100%;
+									mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
+									mask-repeat: no-repeat;
+									mask-size: 100% 100%;
+								}
 
-.logosSwiper img {
-  filter: brightness(0) invert(1); /* deixa a logo branca */
-  opacity: 0.8;
-  max-height: 100px;
-  max-width: 100px;
-  transition: opacity 0.3s;
-  object-fit: contain;  /* evita deformação */
-  display: block;       /* remove espaço embaixo da imagem */
-}
+								.logosSwiper img {
+									filter: brightness(0) invert(1);
+									/* deixa a logo branca */
+									opacity: 0.8;
+									max-height: 100px;
+									max-width: 100px;
+									transition: opacity 0.3s;
+									object-fit: contain;
+									/* evita deformação */
+									display: block;
+									/* remove espaço embaixo da imagem */
+								}
 
-.logosSwiper .swiper-slide-active img {
-  opacity: 1;
-}
+								.logosSwiper .swiper-slide-active img {
+									opacity: 1;
+								}
 
-/* agora só afeta os slides dentro do logosSwiper */
-.logosSwiper .swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;  /* centraliza verticalmente */
-  height: 120px;        /* altura fixa só para este swiper */
-  width: auto;
-  padding: 0 30px;
-}
-
-</style>
+								/* agora só afeta os slides dentro do logosSwiper */
+								.logosSwiper .swiper-slide {
+									display: flex;
+									justify-content: center;
+									align-items: center;
+									/* centraliza verticalmente */
+									height: 120px;
+									/* altura fixa só para este swiper */
+									width: auto;
+									padding: 0 30px;
+								}
+							</style>
 
 							<div class="swiper logosSwiper">
 								<div class="swiper-wrapper">
@@ -671,9 +675,32 @@
 								universo do seu entretenimento!
 							</h2>
 						</div>
+						<style>
+							.planosSwiper .swiper-pagination-bullet {
+								background: #fff;
+								/* cor padrão das bolinhas */
+								opacity: 0.5;
+							}
 
+							.planosSwiper .swiper-pagination-bullet-active {
+								background: #ff5722;
+								/* cor da bolinha ativa */
+								opacity: 1;
+							}
+
+							
+							.planosSwiper {
+								position: relative;
+								/* necessário para que os botões usem o swiper como referência */
+								padding: 0 50px;
+								/* espaço para as setas não ficarem em cima do conteúdo */
+							}
+
+							
+						</style>
 						<div class="swiper planosSwiper">
 							<div class="swiper-wrapper" id="planosContainer"></div>
+							<div class="swiper-pagination"></div>
 						</div>
 					</div>
 					<div class="elementor-element elementor-element-b26b0f0 e-flex e-con-boxed e-con e-parent"
@@ -2138,35 +2165,32 @@
 			slidesPerView: 1,
 			spaceBetween: 16,
 			loop: false, // melhor não repetir para planos
-			autoplay: false, // usuário decide o ritmo
-			speed: 600, // transição suave
-			navigation: {
-				nextEl: ".swiper-button-next",
-				prevEl: ".swiper-button-prev",
-			},
+			autoplay: false,
+			speed: 600,
 			pagination: {
 				el: ".swiper-pagination",
 				clickable: true,
 			},
 			breakpoints: {
-				320: { slidesPerView: 1 },   // Mobile: 1 plano por vez
-				768: { slidesPerView: 2 },   // Tablet: 2 planos
-				1024: { slidesPerView: 3 },  // Desktop: 3 planos lado a lado
-				1440: { slidesPerView: 3 },  // Telas grandes: mantém 3
+				320: { slidesPerView: 1 },
+				768: { slidesPerView: 2 },
+				1024: { slidesPerView: 3 },
+				1440: { slidesPerView: 3 },
 			}
 		});
 
-		  var logosSwiper = new Swiper(".logosSwiper", {
-    slidesPerView: "auto",
-    spaceBetween: 0,
-    loop: true,
-    speed: 6000,
-    autoplay: {
-      delay: 0,
-      disableOnInteraction: false,
-    },
-    allowTouchMove: false, // só gira automático, sem arrastar
-  });
+
+		var logosSwiper = new Swiper(".logosSwiper", {
+			slidesPerView: "auto",
+			spaceBetween: 0,
+			loop: true,
+			speed: 6000,
+			autoplay: {
+				delay: 0,
+				disableOnInteraction: false,
+			},
+			allowTouchMove: false, // só gira automático, sem arrastar
+		});
 	</script>
 
 
@@ -2197,7 +2221,7 @@
 		// Mostrar um popup a cada 9 a 18 segundos (aleatório)
 		setInterval(criarPopup, Math.floor(Math.random() * 9000) + 9000);
 
-		
+
 	</script>
 </body>
 
