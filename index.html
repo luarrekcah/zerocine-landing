@@ -550,20 +550,35 @@
 	</script>
 
 	<script>
-		async function setCityBanner() {
-			try {
-				// API grátis de geolocalização por IP
-				let res = await fetch("https://ipapi.co/json/");
-				let data = await res.json();
-				let city = data.city || "sua cidade";
+	async function setCityBanner() {
+    try {
+        // API grátis de geolocalização por IP
+        let res = await fetch("https://ipapi.co/json/");
+        let data = await res.json();
+        let city = data.city || "sua cidade";
 
-				document.getElementById("banner-text").innerText =
-					`A Zenocine já é sucesso em ${city}! | Mais de 500 pessoas assistem todos os dias. | Experimente hoje mesmo e descubra o motivo!`;
-			} catch (e) {
-				console.log("Erro ao buscar cidade:", e);
-			}
-		}
-		setCityBanner();
+        // Obtém o código do município com base na cidade
+        let municipioRes = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/municipios/${data.city_code}`);
+        let municipioData = await municipioRes.json();
+        let population = municipioData.populacao || 0;
+
+        // Calcula o número fixo de pessoas assistindo
+        let viewers;
+        if (population < 500) viewers = Math.floor(population * 0.4); // 40% da população
+        else if (population < 1000) viewers = Math.floor(population * 0.3); // 30% da população
+        else viewers = Math.floor(population * 0.2); // 20% da população
+
+        document.getElementById("banner-text").innerText =
+            `A Zenocine já é sucesso em ${city}! | Mais de ${viewers} pessoas assistem todos os dias. | Experimente hoje mesmo e descubra o motivo!`;
+
+    } catch (e) {
+        console.log("Erro ao buscar cidade:", e);
+    }
+}
+
+setCityBanner();
+
+
 	</script>
 
 	<a class="skip-link screen-reader-text" href="#content">Ir para o conteúdo</a>
