@@ -446,22 +446,20 @@
 			border-radius: 10px;
 		}
 
+		
 		.planosSwiper .swiper-slide {
   display: flex;
-  height: auto;          /* garante que vai se adaptar */
+  height: auto; /* mobile: cresce conforme o conteúdo */
 }
 
 .planosSwiper .swiper-slide > div {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* distribui o conteúdo */
+  justify-content: space-between;
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
-.planosSwiper .elementor-element.e-con-full.e-flex.e-con.e-child {
-  height: 100%; /* força os containers internos também */
-}
 
 	</style>
 </head>
@@ -1967,7 +1965,7 @@
 			{
 				nome: "Plano Premium",
 				type: "ANUAL",
-				preco: 649.99,
+				preco: 449.99,
 				url: "https://pay.kirvano.com/a0222754-3f7a-434a-a878-187464bd2730",
 				items: [
 					"Ultra Completo",
