@@ -599,7 +599,8 @@
 								</a>
 							</div>
 
-<style>.logosSwiper {
+<style>
+.logosSwiper {
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -625,11 +626,12 @@
   opacity: 1;
 }
 
-.swiper-slide {
+/* agora só afeta os slides dentro do logosSwiper */
+.logosSwiper .swiper-slide {
   display: flex;
   justify-content: center;
   align-items: center;  /* centraliza verticalmente */
-  height: 120px;        /* altura fixa do slide */
+  height: 120px;        /* altura fixa só para este swiper */
   width: auto;
   padding: 0 30px;
 }
@@ -2195,6 +2197,7 @@
 		// Mostrar um popup a cada 9 a 18 segundos (aleatório)
 		setInterval(criarPopup, Math.floor(Math.random() * 9000) + 9000);
 
+		
 	</script>
 </body>
 
